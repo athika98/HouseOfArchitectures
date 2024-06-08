@@ -74,13 +74,23 @@ Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten 
 - architecture_style_model_10.keras: Accuracy val_accuracy: 0.2046 - val_loss: 2.6264
 
 ## How To Use
-1. Start backend
-2. Start frontend
-3. Open URL in browser: http://localhost:8080/
+1. Download Folder "HouseOfArchitectures": https://drive.google.com/drive/folders/1GDFngxERKNzKRhV1xxc2KGME3y7bMFQt?usp=sharing
+2. Unzip the folder and copy "data" and "models" into the backend folder
+3. Start backend
+    ```bash
+    cd backend
+    python app.py
+    ```
+4. Start frontend
+   ```bash
+    cd frontend
+    npm run dev
+    ```
+5. Open URL in browser: http://localhost:8080/
     it should look like that:
     ![Screenshot of URL](docs/images/screenshot.png)
     If not you have too zoom out :)
-4. In browser
+6. In browser
     a) To get Classification: Click on Classification and Upload Image and get a Classification
     b) To check Validation Accuracy and Loss from the models: Go to Accuracy Compasion
 
