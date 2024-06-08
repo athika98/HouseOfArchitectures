@@ -81,13 +81,13 @@ Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten 
 - Copy the "data" and "models" directories into the backend folder.
 ### Start the Backend Server
 ```bash
-    cd backend
-    python app.py
+cd backend
+python app.py
 ```
 ### Start the Frontend Server
 ```bash
-    cd frontend
-    npm run dev
+cd frontend
+npm run dev
 ```
 ### Open the Application in your Browser
 - Go to http://localhost:8080/
