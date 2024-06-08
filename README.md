@@ -2,7 +2,6 @@
 This project aims to classify different architectural styles based on images.
 
 ## Content
-### noch to do
 - [Project goal / Motivation](#project-goal--motivation)
 - [Data Collection](#data-collection)
 - [Modeling](#modeling)
