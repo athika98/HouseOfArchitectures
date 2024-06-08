@@ -14,11 +14,13 @@
         const data = await response.json();
         valAccuracyData = data.map(result => ({
             model: result.model,
-            valAccuracy: result.val_accuracy[result.val_accuracy.length - 1] // Last epoch's val_accuracy
+            valAccuracy: result.val_accuracy[result.val_accuracy.length - 1], // Last epoch's val_accuracy
+            epochs: result.epochs
         }));
         valLossData = data.map(result => ({
             model: result.model,
-            valLoss: result.val_loss[result.val_loss.length - 1] // Last epoch's val_loss
+            valLoss: result.val_loss[result.val_loss.length - 1], // Last epoch's val_loss
+            epochs: result.epochs
         }));
         createCharts();
     };
@@ -47,6 +49,16 @@
                     y: {
                         beginAtZero: true
                     }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            afterLabel: function(context) {
+                                const epochs = valAccuracyData[context.dataIndex].epochs;
+                                return `Epochs: ${epochs}`;
+                            }
+                        }
+                    }
                 }
             }
         });
@@ -67,6 +79,16 @@
                 scales: {
                     y: {
                         beginAtZero: true
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            afterLabel: function(context) {
+                                const epochs = valLossData[context.dataIndex].epochs;
+                                return `Epochs: ${epochs}`;
+                            }
+                        }
                     }
                 }
             }
