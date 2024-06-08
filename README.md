@@ -1,5 +1,5 @@
 # House of Architectures 🏛️
-This project aims to classify different architectural styles based on images. The model uses a pre-trained ResNet50, wich has been fine-tuned for this project.
+This project aims to classify different architectural styles based on images.
 
 ## Content
 ### noch to do
