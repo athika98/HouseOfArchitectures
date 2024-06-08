@@ -20,7 +20,6 @@ I find the topic of architectural style classification very interesting. A syste
 Accurately recognising architectural styles not only helps historians and architects, but also promotes cultural understanding and the preservation of our architectural heritage. Furthermore, such a system could be used in urban planning to preserve or specifically develop the character of a neighbourhood.
 Another advantage is that it helps tourists and people without in-depth architectural knowledge (like myself :smiley: ) to better understand the different styles and their historical significance. This promotes cultural awareness and enriches the travelling experience.
 
-
 ## Data Collection
 Kaggle - Architectural styles [Kaggle - Architectural styles](https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset)
 This dataset contains 10113 images from 25 architectural styles.
@@ -74,35 +73,36 @@ Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten 
 - architecture_style_model_10.keras: Accuracy val_accuracy: 0.2046 - val_loss: 2.6264
 
 ## How To Use
-1. Download Folder "HouseOfArchitectures": https://drive.google.com/drive/folders/1GDFngxERKNzKRhV1xxc2KGME3y7bMFQt?usp=sharing
-2. [Folder "HouseOfArchitectures](https://drive.google.com/drive/folders/1GDFngxERKNzKRhV1xxc2KGME3y7bMFQt?usp=sharing)
-3. Unzip the folder and copy "data" and "models" into the backend folder
-4. Start backend
-    ```bash
+### Download the Project Folders
+- Download this Project and open in Visual Studio
+- Download the Project Folder "HouseOfArchitectures": [Folder "HouseOfArchitectures](https://drive.google.com/drive/folders/1GDFngxERKNzKRhV1xxc2KGME3y7bMFQt?usp=sharing)
+### Set up the Project
+- Unzip the downloaded folder
+- Copy the "data" and "models" directories into the backend folder.
+### Start the Backend Server
+```bash
     cd backend
     python app.py
-    ```
-5. Start frontend
-   ```bash
+```
+### Start the Frontend Server
+```bash
     cd frontend
     npm run dev
-    ```
-6. Open URL in browser: http://localhost:8080/
-    it should look like that:
-    ![Screenshot of URL](docs/images/screenshot.png)
-    If not you have too zoom out :)
-7. In browser
-    a) To get Classification: Click on Classification and Upload Image and get a Classification
-    b) To check Validation Accuracy and Loss from the models: Go to Accuracy Compasion
-
-### noch to do
+```
+### Open the Application in your Browser
+- Go to http://localhost:8080/
+- It should look like that:
+  ![Screenshot of URL](docs/images/screenshot.png)
+  If the layout is not as expected, try zooming out in your browser.
+### Using the Application
+- Classification: Click on "Classification," upload an image, and get the classification result.
+- Accuracy Comparison: Click on "Accuracy Comparison" to check the validation accuracy and loss of the models.
 
 ## Installation
 ### Install Requirements
     ```bash
     pip install -r requirements.txt
     ```
-
 ### Flask Backend
 1. Install flask
     ```bash
@@ -114,7 +114,6 @@ Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten 
     ```bash
     python app.py
     ```
-
 ### Frontend
 1. Create Svelte Project: 
     ```bash
