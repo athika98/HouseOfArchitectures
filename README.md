@@ -74,6 +74,7 @@ In this project, i experimented with various deep learning models to classify ar
 
 ### Fine-Tuning and Optimization
 To maximize the performance of the model, i implemented the following:
+
 #### Layer Customization and Freezing
 - For pre-trained models like ResNet50 and InceptionV3, I added custom top layers tailored to my classification task.
 - I froze the base layers to retain the pre-trained weights, ensuring that the models leveraged their pre-existing feature extraction capabilities.
@@ -146,7 +147,15 @@ validation_generator = train_datagen.flow_from_directory(
 )
 ```
 ## Interpretation
+While some models have achieved validation accuracies above 50%, there are several factors influencing the overall performance. For instance, the validation accuracy for the Custom CNN Model is around 24%, which, although better than random guessing, is not sufficient for professional use.
 
+A likely reason for the varied performance is the imbalance in the dataset. The number of images per class ranges significantly, leading to the model being biased towards the more represented classes. For instance, some classes have as few as 301 images, while others have up to 720. This imbalance causes the model to be heavily influenced by the more represented classes. Addressing this by augmenting the data for underrepresented classes or collecting more images would likely improve the model's accuracy.
+
+Another challenge is the complexity and variability within the image data. For example, different architectural styles can vary widely even within the same category, making it harder for the model to generalize. Additionally, architectural images might include diverse features like interiors, exteriors, and different perspectives, adding another layer of complexity.
+
+Despite these challenges, I am satisfied with the progress made. The InceptionV3 model, especially after fine-tuning, shows promising results with validation accuracies above 50%. This suggests that with further data augmentation, fine-tuning, and perhaps leveraging more sophisticated architectures, the models could achieve even higher performance.
+
+Given the ambitious nature of the task—classifying diverse architectural styles with limited and imbalanced data—the results demonstrate significant potential. Continued efforts to balance the dataset and refine the models could lead to even better accuracy, making these models more viable for professional use in the future.
 
 ## How To Use
 ### Download the Project Folders
