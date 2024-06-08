@@ -6,7 +6,8 @@ This project aims to classify different architectural styles based on images. Th
 - [Project goal / Motivation](#project-goal--motivation)
 - [Data Collection](#data-collection)
 - [Modeling](#modeling)
-- [Interpretation and Validation](#interpretation-and-validation)
+- [Validation](#validation)
+- [Interpretation](#interpretation)
 - [How to use](#how-to-use)
 - [Installation](#installation)
 - [Explanation Files & Folders](#explanation-files--folders)
@@ -51,26 +52,101 @@ Name and Number of images for each Architecture Style:
 - Tudor Revival architecture: 455
 
 ## Modeling
-### noch to do
-Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten wurden entfernt und durch eigene Schichten ersetzt, um die spezifische Aufgabe der Klassifikation von Architekturstilen zu erfüllen. Die finale Architektur sieht wie folgt aus:
-- Eingabeschicht: Vortrainiertes ResNet50-Modell ohne oberste Schicht
-- Global Average Pooling Layer
-- Batch Normalization
-- Dense Layer (512 Neuronen, ReLU)
-- Dropout (0.5)
-- Batch Normalization
-- Dense Layer (1024 Neuronen, ReLU)
-- Dropout (0.5)
-- Ausgabeschicht: Dense Layer (Anzahl der Klassen, Softmax)
+In this project, i experimented with various deep learning models to classify architectural styles. My primary goal was to achieve high accuracy through iterative refinement and fine-tuning. Below is an overview of the models used and the strategies employed to optimize their performance.
 
-### ArchiNet Model
-### Custom CNN Model
-### Inceptionv3 Model
-### Resnet Model
+### Models Used
+#### ArchiNet
+- A custom convolutional neural network (CNN)
+- Sequential architecture with multiple convolutional, pooling, dropout, and batch normalization layers to enhance feature extraction and model stability.
 
-## Interpretation and Validation
-### noch to do
-- architecture_style_model_10.keras: Accuracy val_accuracy: 0.2046 - val_loss: 2.6264
+#### Custom CNN Model
+- A custom-designed CNN for this dataset.
+- Emphasized simplicity and efficiency while maintaining robust feature learning capabilities.
+
+#### ResNet50
+- A pre-trained  model known for its deep residual learning capabilities.
+- Fine-tuned for this dataset by adding custom layers and freezing the base model layers.
+
+#### InceptionV3
+- A pre-trained model, renowned for its inception modules that capture multi-scale features.
+- Fine-tuned similarly by adding custom top layers and freezing the pre-trained layers.
+- Best Accuracy with this one
+
+### Fine-Tuning and Optimization
+To maximize the performance of the model, i implemented the following:
+#### Layer Customization and Freezing
+- For pre-trained models like ResNet50 and InceptionV3, I added custom top layers tailored to my classification task.
+- I froze the base layers to retain the pre-trained weights, ensuring that the models leveraged their pre-existing feature extraction capabilities.
+
+#### Hyperparameter Tuning
+- Experimented with different learning rates, batch sizes, and optimizer configurations to identify the best settings for each model.
+- Used callbacks like EarlyStopping and ReduceLROnPlateau to prevent overfitting and dynamically adjust learning rates.
+
+#### Data Augmentation
+- Applied various data augmentation techniques using a custom image generator.
+- Enhanced the diversity and quantity of training data, helping the models generalize better to unseen examples.
+
+#### Iterative Refinement
+- Trained each model for multiple epochs, continuously monitoring performance metrics.
+- Made iterative adjustments based on the training and validation accuracy and loss, aiming for the highest possible accuracy.
+
+## Validation
+To ensure the robustness and reliability of the models, I implemented a thorough validation process. Below is a summary of the validation approach and the performance of the models:
+
+### Model Performance Summary
+- ArchiNet: Validation Accuracy: 0.201
+- Custom CNN Model: Validation Accuracy: 0.239
+- ResNet50 (10 epochs): Validation Accuracy: 0.190
+- ResNet50 (20 epochs): Validation Accuracy: 0.210
+- InceptionV3 (10 epochs): Validation Accuracy: 0.508
+- InceptionV3 (20 epochs): Validation Accuracy: 0.530
+- InceptionV3 (50 epochs): Validation Accuracy: 0.540
+
+### Data Splitting and Augmentation
+#### Data Preparation
+- I used the ImageDataGenerator class from TensorFlow Keras to handle data preparation and augmentation.
+- The dataset was split into training and validation sets with a 80-20 split, using data augmentation techniques to enhance the robustness of the models.
+
+#### Data Augmentation
+- Applied transformations such as shear, zoom, horizontal flip, rotation, width shift, height shift, and brightness adjustment to the training data.
+- This approach helped in making the models more generalizable and less prone to overfitting.
+
+#### Training and Validation Generators
+Training Data Generator
+
+```bash
+train_datagen = ImageDataGenerator(
+    rescale=1./255,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    brightness_range=[0.8, 1.2],
+    validation_split=0.2
+)
+
+train_generator = train_datagen.flow_from_directory(
+    data_dir,
+    target_size=(224, 224),
+    batch_size=32,
+    class_mode='categorical',
+    subset='training'
+)
+```
+Validation Data Generator
+```bash
+validation_generator = train_datagen.flow_from_directory(
+    data_dir,
+    target_size=(224, 224),
+    batch_size=32,
+    class_mode='categorical',
+    subset='validation'
+)
+```
+## Interpretation
+
 
 ## How To Use
 ### Download the Project Folders
