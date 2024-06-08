@@ -100,9 +100,9 @@ Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten 
 
 ## Installation
 ### Install Requirements
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 ### Flask Backend
 1. Install flask
     ```bash
