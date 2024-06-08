@@ -102,6 +102,8 @@ To ensure the robustness and reliability of the models, I implemented a thorough
 - InceptionV3 (20 epochs): Validation Accuracy: 0.530
 - InceptionV3 (50 epochs): Validation Accuracy: 0.540
 
+  ![Screenshot of URL](docs/images/screenshot1.png)
+
 ### Data Splitting and Augmentation
 #### Data Preparation
 - I used the ImageDataGenerator class from TensorFlow Keras to handle data preparation and augmentation.
