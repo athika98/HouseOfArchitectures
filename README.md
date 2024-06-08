@@ -5,7 +5,7 @@ This project aims to classify different architectural styles based on images. Th
 ### noch to do
 - [Project goal / Motivation](#project-goal--motivation)
 - [Data Collection](#data-collection)
-- [Modeling](#Project goal/Motivation)
+- [Modeling](#modeling)
 - [Interpretation and Validation](#interpretation-and-validation)
 - [How to use](#how-to-use)
 - [Installation](#installation)
@@ -75,22 +75,23 @@ Das Modell basiert auf dem vortrainierten ResNet50-Modell. Die oberen Schichten 
 
 ## How To Use
 1. Download Folder "HouseOfArchitectures": https://drive.google.com/drive/folders/1GDFngxERKNzKRhV1xxc2KGME3y7bMFQt?usp=sharing
-2. Unzip the folder and copy "data" and "models" into the backend folder
-3. Start backend
+2. [Folder "HouseOfArchitectures](https://drive.google.com/drive/folders/1GDFngxERKNzKRhV1xxc2KGME3y7bMFQt?usp=sharing)
+3. Unzip the folder and copy "data" and "models" into the backend folder
+4. Start backend
     ```bash
     cd backend
     python app.py
     ```
-4. Start frontend
+5. Start frontend
    ```bash
     cd frontend
     npm run dev
     ```
-5. Open URL in browser: http://localhost:8080/
+6. Open URL in browser: http://localhost:8080/
     it should look like that:
     ![Screenshot of URL](docs/images/screenshot.png)
     If not you have too zoom out :)
-6. In browser
+7. In browser
     a) To get Classification: Click on Classification and Upload Image and get a Classification
     b) To check Validation Accuracy and Loss from the models: Go to Accuracy Compasion
 
